@@ -1,2 +1,2 @@
 # spinaround
-A collection of single element loaders and spinners
+A collection of single element css loaders and spinners
