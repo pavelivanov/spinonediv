@@ -15,21 +15,24 @@ html
       .items
         .item
           .item-in
-            .spin.sod-triangle-in-hexagon
-            //.spin.sod-triangle-in-hexagon.sp2
-            //.spin.sod-triangle-in-hexagon.sp3
-            //.spin.sod-triangle-in-hexagon.sp4
-            //.spin.sod-triangle-in-hexagon.sp5
-            //.spin.sod-triangle-in-hexagon.sp6
+            .spin.sod-four-sticky-balls-clockwise
+        .item
+          .item-in
+            .spin.sod-four-sticky-balls-clockwise-2
+        .item
+          .item-in
+            .spin.blobs
         .item
           .item-in
         .item
           .item-in
         .item
           .item-in
-        .item
-          .item-in
-        .item
-          .item-in
-        .item
-          .item-in
+
+
+    svg(xmlns="http://www.w3.org/2000/svg" version="1.1")
+      defs
+        filter#goo
+          feGaussianBlur(in="SourceGraphic" stdDeviation="10" result="blur")
+          feColorMatrix(in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo")
+          feBlend(in="SourceGraphic" in2="goo")

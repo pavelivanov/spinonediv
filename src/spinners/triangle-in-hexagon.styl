@@ -1,6 +1,7 @@
 @import "../mixins/triangle-in-hexagon"
 
 
+$sod-triangle-in-hexagon--color                           = #e97b7a
 $sod-triangle-in-hexagon--animation-speed                 = 3s
 $sod-triangle-in-hexagon--triangle-container-width        = 104px
 $sod-triangle-in-hexagon--triangle-height                 = $sod-triangle-in-hexagon--triangle-container-width / 2
@@ -52,7 +53,7 @@ $sod-triangle-in-hexagon--triangle-container-margin-top   = -1 * $sod-triangle-i
   &:after
     content ''
     display: block
-    border-bottom $sod-triangle-in-hexagon--triangle-height solid #333
+    border-bottom $sod-triangle-in-hexagon--triangle-height solid $sod-triangle-in-hexagon--color
     border-left ($sod-triangle-in-hexagon--triangle-edge-size / 2) solid transparent
     border-right ($sod-triangle-in-hexagon--triangle-edge-size / 2) solid transparent
     absolute top 0 left 50%

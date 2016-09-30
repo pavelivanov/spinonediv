@@ -12,7 +12,7 @@
   font-size: 0
 
 .item
-  width: 25%
+  width: 33.33%
   position: relative
   display-inline-block()
 
@@ -22,7 +22,7 @@
   padding-bottom: calc(100% - 20px)
   position: relative
   user-select none
-  box-sizing border-box
+  border-radius 4px
   &:before
   &:after
     content ''
@@ -44,38 +44,7 @@
   left 50%
   z-index: 100
 
-
-.sp1
-  transform: rotate(30deg) !important
-  &:after
-    border-bottom-color: red !important
-
-.sp2
-  margin-top: 30px
-  transform: rotate(-30deg) !important
-  &:after
-    border-bottom-color: orange !important
-
-.sp3
-  margin 45px 0 0 26px
-  transform: rotate(-90deg) !important
-  &:after
-    border-bottom-color: green !important
-
-.sp4
-  margin 30px 0 0 52px
-  transform: rotate(-150deg) !important
-  &:after
-    border-bottom-color: yellow !important
-
-.sp5
-  margin 0 0 0 52px
-  transform: rotate(-210deg) !important
-  &:after
-    border-bottom-color: purple !important
-
-.sp6
-  margin -15px 0 0 26px
-  transform: rotate(-270deg) !important
-  &:after
-    border-bottom-color: blue !important
+.sod-sticky-balls
+  width: auto !important
+  height: auto !important
+  border-radius 4px
