@@ -1,46 +1,46 @@
 $size                 = 50px
 $shift                = 80px
 $shadow-multiplier    = 6px
-$step-percentage      = 100 / 24 * 1%
-$animation-speed      = 8s
-$animation-function   = linear // cubic-bezier(0.74, 3.9, 0.76, 0.54)
+$step-percentage      = 100 / 12 * 1%
+$animation-speed      = 4s
+$animation-function   = linear // cubic-bezier(0.64, 2.11, 0.69, 0.57)
 
 
-$before-iteration-shadow-shifts       = (   ( 1 0 )   ( 0 1 )   ( -1 0 )   ( 0 -1 )   )
-$before-iteration-first-step-shifts   = (   ( 0 0 )   ( 1 0 )   ( 1 1 )    ( 0 1 )    )
-$before-iteration-second-step-shifts  = (   ( 1 0 )   ( 1 1 )   ( 0 1 )    ( 0 0 )    )
+$before-iteration-shifts          = (  (  ( 0 0 )  ( 1 0 )  ( 1 1 )  )  (  ( 1 1 )  ( 0 1 )  ( 0 0 )  )  )
+$before-iteration-shadow-shifts   = (  ( 1 0 )  ( -1 0 )  )
 
-@keyframes sod-four-sticky-balls-clockwise-2--keyframe--before
+@keyframes sod-four-sticky-balls-clockwise-3--keyframe--before
   0%
     transform translate(0, 0)
     box-shadow $color 0 0
-  for iteration in 0 1 2 3
+  for iteration in 0 1
     $iteration-num      = iteration * 6
+    $params             = $before-iteration-shifts[iteration]
     $shadow-params      = $before-iteration-shadow-shifts[iteration]
-    $first-step-params  = $before-iteration-first-step-shifts[iteration]
-    $second-step-params = $before-iteration-second-step-shifts[iteration]
 
     {($iteration-num + 1) * $step-percentage},
     {($iteration-num + 2) * $step-percentage},
     {($iteration-num + 3) * $step-percentage},
-    {($iteration-num + 4) * $step-percentage},
-    {($iteration-num + 5) * $step-percentage}
-      transform translate($shift * $first-step-params[0], $shift * $first-step-params[1])
+    {($iteration-num + 4) * $step-percentage}
+      transform translate($shift * $params[0][0], $shift * $params[0][1])
       box-shadow $color ($shift * $shadow-params[0]) ($shift * $shadow-params[1])
+    {($iteration-num + 5) * $step-percentage}
+      transform translate($shift * $params[1][0], $shift * $params[1][1])
+      box-shadow $color 0 0
     {floor(($iteration-num + 6) * $step-percentage)}
-      transform translate($shift * $second-step-params[0], $shift * $second-step-params[1])
+      transform translate($shift * $params[2][0], $shift * $params[2][1])
       box-shadow $color 0 0
 
 
-$before-iteration-shifts          = (   ( 1 0 )  ( 1 1 )  ( 1 1 )   ( 0 1 )  ( 0 0 )  ( 1 0 )     ( 1 1 )  ( 0 1 )  ( 0 1 )   ( 0 0 )  ( 1 0 )  ( 1 1 )    ( 0 1 )  ( 0 0 )  ( 0 0 )  ( 1 0 )  ( 1 1 )  ( 0 1 )    ( 0 0 )  ( 1 0 )  ( 1 0 )  ( 1 1 )  ( 0 1 )  ( 0 0 )   )
-$before-iteration-shadow-shifts   = (   ( 0 0 )  ( 0 0 )  ( -1 0 )  ( 0 0 )  ( 0 0 )  ( 0 0 )     ( 0 0 )  ( 0 0 )  ( 0 -1 )  ( 0 0 )  ( 0 0 )  ( 0 0 )    ( 0 0 )  ( 0 0 )  ( 1 0 )  ( 0 0 )  ( 0 0 )  ( 0 0 )    ( 0 0 )  ( 0 0 )  ( 0 1 )  ( 0 0 )  ( 0 0 )  ( 0 0 )   )
+$before-iteration-shifts          = (   ( 1 0 )  ( 1 1 )  ( 1 1 )   ( 1 1 )    ( 1 1 )   ( 1 1 )     ( 0 1 )  ( 0 0 )  ( 0 0 )  ( 0 0 )  ( 0 0 )  ( 0 0 )   )
+$before-iteration-shadow-shifts   = (   ( 0 0 )  ( 0 0 )  ( -1 0 )  ( -1 -1 )  ( 0 -1 )  ( 0 0 )     ( 0 0 )  ( 0 0 )  ( 1 0 )  ( 1 1 )  ( 0 1 )  ( 0 0 )   )
 $before-iteration-shadow-sizes    = (   2 1 0 1 2 3   )
 
-@keyframes sod-four-sticky-balls-clockwise-2--keyframe--after
+@keyframes sod-four-sticky-balls-clockwise-3--keyframe--after
   0%
     transform translate(0, 0)
     box-shadow $color 0 0 0 (3 * $shadow-multiplier)
-  for iteration in 0 1 2 3
+  for iteration in 0 1
     $iteration-num = iteration * 6
 
     for step in 0 1 2 3 4 5
@@ -56,7 +56,7 @@ $before-iteration-shadow-sizes    = (   2 1 0 1 2 3   )
 
 
 
-.sod-four-sticky-balls-clockwise-2
+.sod-four-sticky-balls-clockwise-3
   absolute top 0 left 0 right 0 bottom 0
   margin: auto
   filter url('#goo')
@@ -72,11 +72,11 @@ $before-iteration-shadow-sizes    = (   2 1 0 1 2 3   )
     margin (-1 * ($size + $shift) / 2) 0 0 (-1 * ($size + $shift) / 2)
     border-radius 50%
     box-shadow $color 0 0
+    animation: sod-four-sticky-balls-clockwise-3--keyframe--before $animation-function $animation-speed infinite
 
   &:before
     background-color: $color
-    animation: sod-four-sticky-balls-clockwise-2--keyframe--before $animation-function $animation-speed infinite
 
   &:after
     background-color: $color
-    animation: sod-four-sticky-balls-clockwise-2--keyframe--after $animation-function $animation-speed infinite
+    animation-name sod-four-sticky-balls-clockwise-3--keyframe--after
