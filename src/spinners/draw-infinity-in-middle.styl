@@ -1,0 +1,75 @@
+$size                 = 50px
+$offset               = 80px
+$shadow-scale         = 7px
+$animate-speed        = 2.4s
+$animation-function   = linear
+
+
+@keyframes draw-infinity-in-middle-static
+  0%
+  14.5%
+    transform translate(-1 * $offset, 0)
+    box-shadow $color (2 * $offset) 0
+  25%
+    transform translate(-1 * $offset, 0)
+    box-shadow $color (2 * $offset) 0 0 $shadow-scale
+  35.5%
+    transform translate(-1 * $offset, 0)
+    box-shadow $color (2 * $offset) 0
+  35.501%
+  64.5%
+    transform translate($offset, 0)
+    box-shadow $color (-2 * $offset) 0
+  75%
+    transform translate($offset, 0)
+    box-shadow $color (-2 * $offset) 0 0 $shadow-scale
+  85.5%
+    transform translate($offset, 0)
+    box-shadow $color (-2 * $offset) 0
+  85.501%
+  100%
+    transform translate($offset, 0)
+    box-shadow $color (-2 * $offset) 0
+
+@keyframes draw-infinity-in-middle-movable
+  0%
+    transform-origin: 64px 50%
+    transform rotate(0deg)
+  50%
+    transform-origin: 64px 50%
+    transform rotate(-360deg)
+  50.02%
+    transform-origin: -16px 50%
+  100%
+    transform-origin: -16px 50%
+    transform rotate(0deg)
+
+
+.draw-infinity-in-middle
+  filter url('#goo')
+  -webkit-filter url('#goo')
+  absolute top 0 left 0 right 0 bottom 0
+  margin auto
+
+  &:before
+  &:after
+    content ''
+    size $size
+    display block
+    background $color
+    margin ($size / -2) 0 0 ($size / -2)
+    absolute top 50% left 50%
+    border-radius 100%
+
+  &:before
+    //transform translate($size - $offset, 0)
+    //box-shadow $color (2 * $offset) 0 0 10px
+    animation draw-infinity-in-middle-static $animation-function $animate-speed infinite
+
+  &:after
+    //background-color: red
+    //z-index: 20
+    //opacity: 0.5
+    //transform translate($offset, 0)
+    //box-shadow $color (-2 * $offset) 0
+    animation draw-infinity-in-middle-movable $animation-function $animate-speed infinite

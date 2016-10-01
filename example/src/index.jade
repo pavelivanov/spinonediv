@@ -11,23 +11,41 @@ html
 
   body
 
+    -
+      spinners = [
+        { name: 'sod-four-sticky-balls-clockwise', label: 'one div' },
+        { name: 'sod-four-sticky-balls-clockwise-2', label: 'one div' },
+        { name: 'blobs', label: 'one div' },
+        { name: 'draw-infinity-in-middle', label: 'one div' },
+        { name: 'draw-infinity-in-middle_BROKEN', label: 'one div' },
+        { name: 'draw-infinity-in-middle_BROKEN_2', label: 'one div' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' },
+        { name: '', label: '' }
+      ]
+
     .content
-      .items
-        .item
-          .item-in
-            .spin.sod-four-sticky-balls-clockwise
-        .item
-          .item-in
-            .spin.sod-four-sticky-balls-clockwise-2
-        .item
-          .item-in
-            .spin.blobs
-        .item
-          .item-in
-        .item
-          .item-in
-        .item
-          .item-in
+      .spinners
+        for spinner, index in spinners
+          .spinner
+            .spinner-in
+              .spinner-label #{spinner.label}
+              .spinner-num #{index + 1}
+              .core(class="#{spinner.name}")
 
 
     svg(xmlns="http://www.w3.org/2000/svg" version="1.1")

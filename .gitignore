@@ -3,6 +3,7 @@
 *.log.*
 
 node_modules
-example/build
+example/build/index.html
+example/build/style.css
 
 lib

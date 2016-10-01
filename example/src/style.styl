@@ -1,28 +1,33 @@
 @import "../../node_modules/nib/lib/nib"
-@import "mixins"
+@import "_mixins"
+@import "_fonts"
+
+
+body
+  font 18px/26px 'Noto Sans', sans-serif
 
 
 .content
-  width: 900px
+  width: 400px
   margin 0 auto
   padding 50px 0 100px
 
-.items
+.spinners
   width: 100%
   font-size: 0
 
-.item
-  width: 33.33%
+.spinner
+  width: 100%
   position: relative
   display-inline-block()
 
-.item-in
-  background-color: #ecf3fb
-  margin 10px
+.spinner-in
+  background-color: #07303a //#ecf3fb
+  margin 20px
   padding-bottom: calc(100% - 20px)
   position: relative
   user-select none
-  border-radius 4px
+  border-radius 6px
   &:before
   &:after
     content ''
@@ -38,7 +43,22 @@
     height: 100%
     left 50%
 
-.spin
+.spinner-label
+  absolute top 10px left 12px
+  opacity: 0.15
+  text-transform: uppercase
+  font-size: 20px
+  color #fff
+
+.spinner-num
+  line-height: 60px
+  absolute top 10px right 20px
+  opacity: 0.1
+  font-weight: 600
+  font-size: 60px
+  color #fff
+
+.core
   position absolute !important
   top 50%
   left 50%

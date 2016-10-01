@@ -1,0 +1,23 @@
+$font-noto-sans-path              = './fonts/noto-sans/NotoSansRegular'
+$font-noto-sans-bold-path         = './fonts/noto-sans/NotoSansBold'
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url($font-noto-sans-path + '.eot');
+  src: url($font-noto-sans-path + '.eot?#iefix')format('embedded-opentype'),
+      url($font-noto-sans-path + '.woff') format('woff'),
+      url($font-noto-sans-path + '.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+  
+@font-face {
+  font-family: 'Noto Sans';
+  src: url($font-noto-sans-bold-path + '.eot');
+  src: url($font-noto-sans-bold-path + '.eot?#iefix')format('embedded-opentype'),
+      url($font-noto-sans-bold-path + '.woff') format('woff'),
+      url($font-noto-sans-bold-path + '.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}  
