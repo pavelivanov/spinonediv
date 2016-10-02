@@ -1,2 +1,3 @@
 # spinonediv
-A collection of single element css loaders and spinners
+
+Single Element pure CSS Spinners & Loaders

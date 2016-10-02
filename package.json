@@ -1,7 +1,7 @@
 {
   "name": "spinonediv",
   "version": "0.0.1",
-  "description": "A collection of single element css loaders and spinners",
+  "description": "Single Element pure CSS Spinners & Loaders",
   "homepage": "https://github.com/grammka/spinonediv#readme",
   "author": "Pavel Ivanov (grammka@gmail.com)",
   "license": "MIT",
