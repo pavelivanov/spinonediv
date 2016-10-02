@@ -1,4 +1,4 @@
-@import "../../node_modules/nib/lib/nib"
+@import "nib"
 @import "_mixins"
 @import "_fonts"
 
@@ -8,20 +8,32 @@ body
 
 
 .content
-  width: 400px
+  max-width: 1200px
   margin 0 auto
-  padding 50px 0 100px
+  padding 50px 5px 100px
 
 .spinners
-  width: 100%
   font-size: 0
 
 .spinner
-  width: 100%
+  width: 25%
   position: relative
   display-inline-block()
 
 .spinner-in
+  background repeating-linear-gradient(
+      to right,
+      #052c33,
+      #052c33 1px,
+      transparent 1px,
+      transparent 12.5%
+  ), repeating-linear-gradient(
+      to bottom,
+      #052c33,
+      #052c33 1px,
+      transparent 1px,
+      transparent 12.5%
+  )
   background-color: #07303a //#ecf3fb
   margin 20px
   padding-bottom: calc(100% - 20px)
@@ -31,8 +43,8 @@ body
   &:before
   &:after
     content ''
-    display: none
-    background-color: red
+    display: block
+    background-color: #05272d
     position absolute
   &:before
     width: 100%
@@ -43,20 +55,26 @@ body
     height: 100%
     left 50%
 
-.spinner-label
-  absolute top 10px left 12px
-  opacity: 0.15
-  text-transform: uppercase
-  font-size: 20px
+.spinner-title
+  line-height: 20px
+  cursor: default
+  absolute top 5px right 12px
+  opacity: 0.1
+  font-size: 0
   color #fff
 
-.spinner-num
-  line-height: 60px
-  absolute top 10px right 20px
-  opacity: 0.1
+.spinner-title-pre
+  vertical-align: top
+  margin 5px 8px 0 0
   font-weight: 600
-  font-size: 60px
-  color #fff
+  font-size: 18px
+  display-inline-block()
+
+.spinner-num
+  vertical-align: top
+  line-height: 40px
+  font-weight: 600
+  font-size: 40px
 
 .core
   position absolute !important
@@ -68,3 +86,8 @@ body
   width: auto !important
   height: auto !important
   border-radius 4px
+
+
+@media (max-width: 500px)
+  .spinner
+    width: 100%

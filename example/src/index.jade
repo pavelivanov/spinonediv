@@ -1,57 +1,20 @@
 doctype html
 html
   head
-    title SpinAround
+    title SpinOneDiv
     meta(charset="utf-8")
-    meta(name="fragment" content="!")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     link(href="./style.css" rel="stylesheet")
-    link(href="./spinaround.css" rel="stylesheet")
-    link(href="../../lib/spinaround.css" rel="stylesheet")
+    link(href="../../lib/spinonediv.css" rel="stylesheet")
 
   body
 
-    -
-      spinners = [
-        { name: 'sod-triangle-in-hexagon', label: 'one div' },
-        { name: 'sod-four-sticky-balls-clockwise', label: 'one div' },
-        { name: 'sod-four-sticky-balls-clockwise-2', label: 'one div' },
-        { name: 'sod-four-sticky-balls-clockwise-3', label: 'one div' },
-        { name: 'draw-infinity-in-middle', label: 'one div' }
-        /*
-        { name: 'draw-infinity-in-middle_BROKEN', label: 'BROKEN' },
-        { name: 'draw-infinity-in-middle_BROKEN_2', label: 'BROKEN' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' },
-        { name: '', label: '' }
-        */
-      ]
-
     .content
       .spinners
-        for spinner, index in spinners
+        for num, index in [ 2, 4, 5, 6, 7 ]
           .spinner
             .spinner-in
-              .spinner-label #{spinner.label}
-              .spinner-num #{index + 1}
-              .core(class="#{spinner.name}")
-
-
-    svg(xmlns="http://www.w3.org/2000/svg" version="1.1")
-      defs
-        filter#goo
-          feGaussianBlur(in="SourceGraphic" stdDeviation="10" result="blur")
-          feColorMatrix(in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo")
-          feBlend(in="SourceGraphic" in2="goo")
+              .spinner-title
+                span.spinner-title-pre spinner -
+                span.spinner-num #{num}
+              .core(class="spinner-#{num}")

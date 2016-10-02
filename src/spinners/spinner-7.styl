@@ -1,0 +1,117 @@
+$shadow-color                 = #000
+$size                         = 20px
+$shift                        = 18px
+$animation-speed              = 0.8s
+$animation-function           = linear
+$animation-before-delay       = $animation-speed
+
+
+$ball-45deg-offset = math(2, 'sqrt')
+
+$balls-offsets =  ( 0 -2 ),
+                  ( $ball-45deg-offset -1 * $ball-45deg-offset ),
+                  ( 2 0 ),
+                  ( $ball-45deg-offset $ball-45deg-offset ),
+                  ( 0 2 ),
+                  ( -1 * $ball-45deg-offset $ball-45deg-offset ),
+                  ( -2 0 ),
+                  ( -1 * $ball-45deg-offset -1 * $ball-45deg-offset )
+
+shadow-position($index)
+  ($balls-offsets[$index][0] * $shift) ($balls-offsets[$index][1] * $shift)
+
+$before-balls-positions = ( 0 0 0 0 0 0 0 0 ),
+                          ( 1 0 0 0 0 0 0 0 ),
+                          ( 2 1 0 0 0 0 0 0 ),
+                          ( 3 2 1 0 0 0 0 0 ),
+                          ( 2 3 2 1 0 0 0 0 ),
+                          ( 1 2 3 2 1 0 0 0 ),
+                          ( 0 1 2 3 2 1 0 0 ),
+                          ( 0 0 1 2 3 2 1 0 ),
+                          ( 0 0 0 1 2 3 2 1 ),
+                          ( 1 0 0 0 1 2 3 2 ),
+
+$after-balls-positions =  ( 1 0 0 0 1 2 3 2 ),
+                          ( 2 1 0 0 0 1 2 3 ),
+                          ( 3 2 1 0 0 0 1 2 ),
+                          ( 2 3 2 1 0 0 0 1 ),
+                          ( 1 2 3 2 1 0 0 0 ),
+                          ( 0 1 2 3 2 1 0 0 ),
+                          ( 0 0 1 2 3 2 1 0 ),
+                          ( 0 0 0 1 2 3 2 1 ),
+                          ( 1 0 0 0 1 2 3 2 )
+
+
+$multiplier = 0.15
+
+animate-shadow-position($index, $positions)
+  ($balls-offsets[$index][0] * $shift * (1 + $positions[$index] * $multiplier)) ($balls-offsets[$index][1] * $shift * (1 + $positions[$index] * $multiplier))
+
+
+animate-before-balls($positions)
+  box-shadow  $color animate-shadow-position(0, $positions),
+              $color animate-shadow-position(1, $positions),
+              $color animate-shadow-position(2, $positions),
+              $color animate-shadow-position(3, $positions),
+              $color animate-shadow-position(4, $positions),
+              $color animate-shadow-position(5, $positions),
+              $color animate-shadow-position(6, $positions),
+              $color animate-shadow-position(7, $positions)
+
+$animation-before-step-percentage = 100 / 9 * 1%
+
+@keyframes spinner-7--before-balls
+  for step in 0..9
+    {$animation-before-step-percentage * step}
+      animate-before-balls($before-balls-positions[step])
+
+
+animate-after-balls($positions)
+  box-shadow  $color animate-shadow-position(0, $positions),
+              $color animate-shadow-position(1, $positions),
+              $color animate-shadow-position(2, $positions),
+              $color animate-shadow-position(3, $positions),
+              $color animate-shadow-position(4, $positions),
+              $color animate-shadow-position(5, $positions),
+              $color animate-shadow-position(6, $positions),
+              $color animate-shadow-position(7, $positions)
+
+$animation-after-step-percentage = 100 / 8 * 1%
+
+@keyframes spinner-7--after-balls
+  for step in 0..8
+    {$animation-after-step-percentage * step}
+      animate-after-balls($after-balls-positions[step])
+
+
+before-shadows()
+  box-shadow  $color shadow-position(0),
+              $color shadow-position(1),
+              $color shadow-position(2),
+              $color shadow-position(3),
+              $color shadow-position(4),
+              $color shadow-position(5),
+              $color shadow-position(6),
+              $color shadow-position(7)
+
+
+
+.spinner-7
+  size $size
+  absolute top 50% left 50%
+  z-index: 10
+  border-radius: 50%
+  transform translate(-50%, -50%)
+  &:before
+  &:after
+    content ''
+    size $size
+    display: block
+    absolute bottom 0 left 0
+    border-radius: 50%
+  &:before
+    //animate-before-balls($before-balls-positions[0])
+    animation: spinner-7--before-balls $animation-speed $animation-function
+  &:after
+    //animate-after-balls($after-balls-positions[0])
+    animation: spinner-7--after-balls $animation-speed $animation-before-delay $animation-function infinite
