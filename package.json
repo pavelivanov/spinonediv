@@ -1,16 +1,16 @@
 {
-  "name": "spinonediv",
+  "name": "spinaround",
   "version": "0.0.1",
-  "description": "A collection of single element css loaders and spinners",
-  "homepage": "https://github.com/grammka/spinonediv#readme",
+  "description": "A collection of css loaders and spinners",
+  "homepage": "https://github.com/grammka/spinaround#readme",
   "author": "Pavel Ivanov (grammka@gmail.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grammka/spinonediv.git"
+    "url": "git+https://github.com/grammka/spinaround.git"
   },
   "keywords": [
-    "spinonediv",
+    "spinaround",
     "spinners",
     "spinner",
     "loaders",
@@ -23,13 +23,15 @@
   ],
   "main": "./lib",
   "scripts": {
+    "start": "mkdirp ./lib && npm run build",
     "prepublish": "npm run build",
     "clean": "rimraf ./lib",
-    "dev": "stylus -w ./src -o ./lib",
-    "build": "stylus ./src -o ./lib"
+    "dev": "stylus -w ./src/spinaround.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "build": "stylus ./src/spinaround.styl -o ./lib -u ./node_modules/nib/lib/nib"
   },
   "dependencies": {},
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "nib": "^1.1.2",
     "rimraf": "^2.5.4",
     "stylus": "^0.54.5"

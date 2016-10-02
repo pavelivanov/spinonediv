@@ -1,5 +1,5 @@
 {
-  "name": "spinonediv",
+  "name": "spinaround",
   "version": "0.0.1",
   "description": "A collection of single element css loaders and spinners",
   "homepage": "https://github.com/grammka/spinonediv#readme",
@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rimraf build",
     "html": "jade ./src -o ./build -P -w",
-    "stylus": "stylus ./src/style.styl -o ./build -w",
+    "css": "stylus ./src/style.styl -o ./build -w",
     "build": "npm run clean && jade ./src -o ./build -P && stylus ./src -o ./build"
   },
   "dependencies": {},
