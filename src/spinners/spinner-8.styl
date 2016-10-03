@@ -1,6 +1,6 @@
-$container-size               = 64px
 $border-size                  = 2px
-$before-size                  = floor(math(($container-size / 2) * ($container-size / 2) * 2, 'sqrt'))
+$before-size                  = 48px
+$container-size               = ceil($before-size * math(2, 'sqrt'))
 $after-size                   = $before-size * 2
 $animation-speed              = 2.6s
 $animation-function           = linear
