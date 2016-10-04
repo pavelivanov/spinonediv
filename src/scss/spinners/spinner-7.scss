@@ -1,0 +1,124 @@
+$shadow-color                 : #000;
+$size                         : 20px;
+$shift                        : 18px;
+$animation-speed              : 0.8s;
+$animation-function           : linear;
+$animation-before-delay       : $animation-speed;
+
+
+$ball-45deg-offset : sqrt(2);
+
+$balls-offsets : (
+  ( 0, -2 ),
+  ( $ball-45deg-offset, (-1 * $ball-45deg-offset) ),
+  ( 2, 0 ),
+  ( $ball-45deg-offset, $ball-45deg-offset ),
+  ( 0, 2 ),
+  ( -1 * $ball-45deg-offset, $ball-45deg-offset ),
+  ( -2, 0 ),
+  ( -1 * $ball-45deg-offset, -1 * $ball-45deg-offset )
+);
+
+$before-balls-positions : (
+  ( 0, 0, 0, 0, 0, 0, 0, 0 ),
+  ( 1, 0, 0, 0, 0, 0, 0, 0 ),
+  ( 2, 1, 0, 0, 0, 0, 0, 0 ),
+  ( 3, 2, 1, 0, 0, 0, 0, 0 ),
+  ( 2, 3, 2, 1, 0, 0, 0, 0 ),
+  ( 1, 2, 3, 2, 1, 0, 0, 0 ),
+  ( 0, 1, 2, 3, 2, 1, 0, 0 ),
+  ( 0, 0, 1, 2, 3, 2, 1, 0 ),
+  ( 0, 0, 0, 1, 2, 3, 2, 1 ),
+  ( 1, 0, 0, 0, 1, 2, 3, 2 )
+);
+
+$after-balls-positions : (
+  ( 1, 0, 0, 0, 1, 2, 3, 2 ),
+  ( 2, 1, 0, 0, 0, 1, 2, 3 ),
+  ( 3, 2, 1, 0, 0, 0, 1, 2 ),
+  ( 2, 3, 2, 1, 0, 0, 0, 1 ),
+  ( 1, 2, 3, 2, 1, 0, 0, 0 ),
+  ( 0, 1, 2, 3, 2, 1, 0, 0 ),
+  ( 0, 0, 1, 2, 3, 2, 1, 0 ),
+  ( 0, 0, 0, 1, 2, 3, 2, 1 ),
+  ( 1, 0, 0, 0, 1, 2, 3, 2 )
+);
+
+$multiplier : 0.15;
+
+$animation-before-step-percentage : 100 / 9 * 1%;
+$animation-after-step-percentage : 100 / 8 * 1%;
+
+
+@function animate-shadow-position($index, $positions) {
+  @return (nth(nth($balls-offsets, $index), 1) * $shift * (1 + nth($positions, $index) * $multiplier)) (nth(nth($balls-offsets, $index), 2) * $shift * (1 + nth($positions, $index) * $multiplier))
+}
+
+@mixin animate-before-balls($positions) {
+  box-shadow: $color animate-shadow-position(1, $positions),
+              $color animate-shadow-position(2, $positions),
+              $color animate-shadow-position(3, $positions),
+              $color animate-shadow-position(4, $positions),
+              $color animate-shadow-position(5, $positions),
+              $color animate-shadow-position(6, $positions),
+              $color animate-shadow-position(7, $positions),
+              $color animate-shadow-position(8, $positions);
+}
+
+@mixin animate-after-balls($positions) {
+  box-shadow: $color animate-shadow-position(1, $positions),
+              $color animate-shadow-position(2, $positions),
+              $color animate-shadow-position(3, $positions),
+              $color animate-shadow-position(4, $positions),
+              $color animate-shadow-position(5, $positions),
+              $color animate-shadow-position(6, $positions),
+              $color animate-shadow-position(7, $positions),
+              $color animate-shadow-position(8, $positions);
+}
+
+
+@keyframes spinner-7--before-balls {
+  @for $step from 1 through 10 {
+    #{$animation-before-step-percentage * ($step - 1)} {
+      @include animate-before-balls(nth($before-balls-positions, $step));
+    }
+  }
+}
+
+@keyframes spinner-7--after-balls {
+  @for $step from 1 through 9 {
+    #{$animation-after-step-percentage * ($step - 1)} {
+      @include animate-after-balls(nth($after-balls-positions, $step));
+    }
+  }
+}
+
+
+.spinner-7 {
+  @include size($size);
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  z-index: 10;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+
+  &:before,
+  &:after {
+    content: '';
+    @include size($size);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+  }
+
+  &:before {
+    animation: spinner-7--before-balls $animation-speed $animation-function;
+  }
+
+  &:after {
+    animation: spinner-7--after-balls $animation-speed $animation-before-delay $animation-function infinite;
+  }
+}

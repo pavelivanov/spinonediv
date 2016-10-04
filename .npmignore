@@ -1,5 +1,6 @@
 .*rc
+*.log
+*.log*
 
 example
-src
 test

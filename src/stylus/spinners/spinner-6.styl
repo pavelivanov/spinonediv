@@ -8,12 +8,6 @@ $animation-function           = linear
 
 $balls-offsets = (  (-3 * $size)  (-1.5 * $size)  0  (1.5 * $size)  (3 * $size)  )
 
-shadows($color, $offset, $blur = 0)
-  box-shadow  $color $balls-offsets[0] $offset $blur,
-              $color $balls-offsets[1] $offset $blur,
-              $color $balls-offsets[2] $offset $blur,
-              $color $balls-offsets[3] $offset $blur,
-              $color $balls-offsets[4] $offset $blur
 
 animate-balls($positions)
   box-shadow  $color $balls-offsets[0] (-1 * $size + -1 * $shift * $positions[0]),
@@ -70,14 +64,12 @@ $ball-positions =   ( 0 0 0 0 0 ),
     display: block
     absolute bottom 0 left 0
     border-radius: 50%
+    animation: spinner-6--balls $animation-speed $animation-function infinite
   &:before
     size $size
     z-index: 20
-    shadows($color, -1 * $size)
-    animation: spinner-6--balls $animation-speed $animation-function infinite
   &:after
     width $size
     height: ($size / 3)
     z-index: 10
-    shadows(rgba($shadow-color, 0.5), -1 * $size + $size / 6, 2px)
-    animation: spinner-6--shadows $animation-speed $animation-function infinite
+    animation-name: spinner-6--shadows

@@ -17,9 +17,6 @@ $balls-offsets =  ( 0 -2 ),
                   ( -2 0 ),
                   ( -1 * $ball-45deg-offset -1 * $ball-45deg-offset )
 
-shadow-position($index)
-  ($balls-offsets[$index][0] * $shift) ($balls-offsets[$index][1] * $shift)
-
 $before-balls-positions = ( 0 0 0 0 0 0 0 0 ),
                           ( 1 0 0 0 0 0 0 0 ),
                           ( 2 1 0 0 0 0 0 0 ),
@@ -84,17 +81,6 @@ $animation-after-step-percentage = 100 / 8 * 1%
       animate-after-balls($after-balls-positions[step])
 
 
-before-shadows()
-  box-shadow  $color shadow-position(0),
-              $color shadow-position(1),
-              $color shadow-position(2),
-              $color shadow-position(3),
-              $color shadow-position(4),
-              $color shadow-position(5),
-              $color shadow-position(6),
-              $color shadow-position(7)
-
-
 
 .spinner-7
   size $size
@@ -110,8 +96,6 @@ before-shadows()
     absolute bottom 0 left 0
     border-radius: 50%
   &:before
-    //animate-before-balls($before-balls-positions[0])
     animation: spinner-7--before-balls $animation-speed $animation-function
   &:after
-    //animate-after-balls($after-balls-positions[0])
     animation: spinner-7--after-balls $animation-speed $animation-before-delay $animation-function infinite

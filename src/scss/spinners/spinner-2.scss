@@ -1,0 +1,62 @@
+$size                   : 80px;
+$border-size            : 2px;
+$animation-speed        : 0.5s;
+$animation-function     : linear;
+
+
+@keyframes spinner-2--before {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-2--after {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+.spinner-2 {
+  @include size($size);
+  border-radius: 50%;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  margin: ($size / -2) 0 0 ($size / -2);
+
+  &:before,
+  &:after {
+    content: '';
+    @include size(100%);
+    display: block;
+    border: $border-size solid $color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: spinner-2--before $animation-speed $animation-function infinite;
+  }
+
+  &:before {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &:after {
+    transform: scale(0);
+    opacity: 0;
+    animation-name: spinner-2--after;
+  }
+}

@@ -1,0 +1,97 @@
+$shadow-color                 : #000;
+$size                         : 20px;
+$shift                        : 16px;
+$animation-speed              : 1.1s;
+$animation-step-percentage    : 10%;
+$animation-function           : linear;
+
+
+$balls-offsets : (  -3 * $size,   -1.5 * $size,   0,   1.5 * $size,   3 * $size  );
+
+$ball-positions : (
+  ( 0, 0, 0, 0, 0 ),
+  ( 1, 0, 0, 0, 0 ),
+  ( 2, 1, 0, 0, 0 ),
+  ( 3, 2, 1, 0, 0 ),
+  ( 2, 3, 2, 1, 0 ),
+  ( 1, 2, 3, 2, 1 ),
+  ( 0, 1, 2, 3, 2 ),
+  ( 0, 0, 1, 2, 3 ),
+  ( 0, 0, 0, 1, 2 ),
+  ( 0, 0, 0, 0, 1 ),
+  ( 0, 0, 0, 0, 0 )
+);
+
+
+@mixin animate-balls($positions) {
+  box-shadow: $color   nth($balls-offsets, 1)   (-1 * $size + -1 * $shift * nth($positions, 1)),
+              $color   nth($balls-offsets, 2)   (-1 * $size + -1 * $shift * nth($positions, 2)),
+              $color   nth($balls-offsets, 3)   (-1 * $size + -1 * $shift * nth($positions, 3)),
+              $color   nth($balls-offsets, 4)   (-1 * $size + -1 * $shift * nth($positions, 4)),
+              $color   nth($balls-offsets, 5)   (-1 * $size + -1 * $shift * nth($positions, 5));
+}
+
+@mixin animate-shadows($positions) {
+  $yOffset            : -1 * $size + $size / 6;
+  $initialOpacity     : 0.5;
+  $initialBlur        : 2px;
+  $opacityMultiplier  : 0.1;
+  $blurMultiplier     : 4;
+
+  box-shadow: rgba($shadow-color, $initialOpacity - nth($positions, 1) * $opacityMultiplier) nth($balls-offsets, 1) $yOffset ($initialBlur + $blurMultiplier * nth($positions, 1)),
+              rgba($shadow-color, $initialOpacity - nth($positions, 2) * $opacityMultiplier) nth($balls-offsets, 2) $yOffset ($initialBlur + $blurMultiplier * nth($positions, 2)),
+              rgba($shadow-color, $initialOpacity - nth($positions, 3) * $opacityMultiplier) nth($balls-offsets, 3) $yOffset ($initialBlur + $blurMultiplier * nth($positions, 3)),
+              rgba($shadow-color, $initialOpacity - nth($positions, 4) * $opacityMultiplier) nth($balls-offsets, 4) $yOffset ($initialBlur + $blurMultiplier * nth($positions, 4)),
+              rgba($shadow-color, $initialOpacity - nth($positions, 5) * $opacityMultiplier) nth($balls-offsets, 5) $yOffset ($initialBlur + $blurMultiplier * nth($positions, 5));
+}
+
+
+@keyframes spinner-6--balls {
+  @for $step from 1 through 11 {
+    #{$animation-step-percentage * ($step - 1)} {
+      @include animate-balls(nth($ball-positions, $step));
+    }
+  }
+}
+
+@keyframes spinner-6--shadows {
+  @for $step from 1 through 11 {
+    #{$animation-step-percentage * ($step - 1)} {
+      @include animate-shadows(nth($ball-positions, $step));
+    }
+  }
+}
+
+
+.spinner-6 {
+  @include size($size);
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  z-index: 10;
+  border-radius: 50%;
+  transform: translate(-50%, $size / 2);
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    animation: spinner-6--balls $animation-speed $animation-function infinite;
+  }
+
+  &:before {
+    @include size($size);
+    z-index: 20;
+  }
+
+  &:after {
+    width: $size;
+    height: ($size / 3);
+    z-index: 10;
+    animation-name: spinner-6--shadows;
+  }
+}

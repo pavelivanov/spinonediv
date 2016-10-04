@@ -1,0 +1,51 @@
+$border-size                  : 2px;
+$before-size                  : 48px;
+$container-size               : ceil($before-size * sqrt(2));
+$after-size                   : $before-size * 2;
+$animation-speed              : 2.6s;
+$animation-function           : linear;
+$animation-before-delay       : $animation-speed;
+
+
+@keyframes spinner-8 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.spinner-8 {
+  @include size($container-size);
+  border: $border-size solid $color;
+  margin: ($container-size / -2) 0 0 ($container-size / -2);
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  box-sizing: border-box;
+  animation: spinner-8 $animation-speed linear infinite;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: $border-size solid $color;
+    box-sizing: border-box;
+    animation: spinner-8 ($animation-speed / 2) linear infinite;
+    animation-direction: reverse;
+  }
+
+  &:before {
+    @include size($before-size);
+    margin: ($before-size / -2) 0 0 ($before-size / -2);
+  }
+
+  &:after {
+    @include size($after-size);
+    margin: ($after-size / -2) 0 0 ($after-size / -2);
+  }
+}

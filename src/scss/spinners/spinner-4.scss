@@ -1,0 +1,68 @@
+$size                   : 80px;
+$animation-speed        : 1s;
+$animation-function     : cubic-bezier(0.22, 0.61, 0.36, 1);
+
+
+@keyframes spinner-4--before {
+  0% {
+    @include size(0);
+  }
+  30% {
+    @include size($size);
+    opacity: 1;
+  }
+  100% {
+    @include size($size);
+    border-width: 5px;
+    opacity: 0;
+  }
+}
+
+@keyframes spinner-4--after {
+  0% {
+    @include size(0);
+  }
+  30% {
+    @include size($size);
+    opacity: 1;
+  }
+  100% {
+    @include size($size);
+    border-width: 5px;
+    opacity: 0;
+  }
+}
+
+
+.spinner-4 {
+  @include size(0);
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  user-select: none;
+  border-radius: 100%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+
+  &:before,
+  &:after {
+    content: '';
+    @include size(0);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 0 solid $color;
+    opacity: 0;
+    user-select: none;
+    border-radius: 100%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    animation: spinner-4--before $animation-speed $animation-function infinite;
+  }
+
+  &:after {
+    animation-name: spinner-4--after;
+    animation-delay: ($animation-speed / 2);
+  }
+}

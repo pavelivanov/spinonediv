@@ -4,7 +4,7 @@ $triangle-edge-size               = floor($triangle-container-width / math(3, 's
 $triangle-container-height        = 2 * $triangle-edge-size
 $animation-speed                  = 3s
 $animation-step-percentage        = 16.6666666%
-$animation-function               = linear // cubic-bezier(0.64, 2.11, 0.69, 0.57)
+$animation-function               = linear
 
 // cos(30deg) between edge and X
 $triangle-container-margin-left   = floor(-1 * $triangle-edge-size * math(3, 'sqrt') / 4)
@@ -12,7 +12,7 @@ $triangle-container-margin-left   = floor(-1 * $triangle-edge-size * math(3, 'sq
 $triangle-container-margin-top    = -1 * $triangle-edge-size / 4
 
 
-@keyframes spinner-1--container
+@keyframes spinner-9--container
   0%
     transform rotate(30deg)
   16.666%
@@ -28,21 +28,21 @@ $triangle-container-margin-top    = -1 * $triangle-edge-size / 4
   100%
     transform rotate(-330deg)
 
-@keyframes spinner-1--before
+@keyframes spinner-9--before
   100%
     transform: rotateX(180deg)
 
-@keyframes spinner-1--after
+@keyframes spinner-9--after
   100%
     transform: rotateX(180deg)
 
 
-.spinner-1
+.spinner-9
   size 0
   absolute top 50% left 50%
   user-select none
   transform rotate(30deg)
-  animation spinner-1--container $animation-speed steps(1) infinite
+  animation spinner-9--container $animation-speed steps(1) infinite
   &:before
   &:after
     content ''
@@ -55,6 +55,6 @@ $triangle-container-margin-top    = -1 * $triangle-edge-size / 4
     margin-top: -1 * $triangle-height
     transform: rotateX(0deg)
     transform-origin 50% 100%
-    animation spinner-1--before ($animation-speed / 6) $animation-function infinite
+    animation spinner-9--before ($animation-speed / 6) $animation-function infinite
   &:after
-    animation-name spinner-1--after
+    animation-name spinner-9--after

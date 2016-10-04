@@ -1,6 +1,6 @@
 {
   "name": "spinonediv",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Single Element pure CSS Spinners & Loaders",
   "homepage": "https://github.com/grammka/spinonediv#readme",
   "author": "Pavel Ivanov (grammka@gmail.com)",
@@ -26,8 +26,10 @@
     "start": "mkdirp ./lib && npm run build",
     "prepublish": "npm run build",
     "clean": "rimraf ./lib",
-    "dev": "stylus -w ./src/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
-    "build": "stylus ./src/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib"
+    "stylus:dev": "stylus -w ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "stylus:build": "stylus ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "scss:dev": "node-sass -w ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules"
+    "scss:build": "node-sass ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules"
   },
   "dependencies": {},
   "devDependencies": {

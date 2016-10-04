@@ -27,7 +27,6 @@ $animation-function     = linear
   absolute top 50% left 50%
   margin ($size / -2) 0 0 ($size / -2)
 
-.spinner-2
   &:before
   &:after
     content:''
@@ -38,9 +37,11 @@ $animation-function     = linear
     border-radius: 50%
     box-sizing border-box
     animation: spinner-2--before $animation-speed $animation-function infinite
+
   &:before
     transform: scale(1)
     opacity: 1
+
   &:after
     transform: scale(0)
     opacity: 0

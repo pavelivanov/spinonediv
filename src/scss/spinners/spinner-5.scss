@@ -1,0 +1,54 @@
+$space-size             : 2px;
+$border-size            : 8px;
+$container-size         : 4 * ($border-size + $space-size) + 30px;
+$animation-speed        : 0.7s;
+$animation-function     : linear;
+
+
+@keyframes spinner-5--border-opacity {
+  from {
+    border-color: rgba($color, 1);
+  }
+  to {
+    border-color: rgba($color, 0);
+  }
+}
+
+
+.spinner-5 {
+  @include size($container-size);
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  border: $border-size solid transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spinner-5--border-opacity $animation-speed $animation-function infinite;
+  animation-delay: 0.24s;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: $border-size solid transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: spinner-5--border-opacity $animation-speed $animation-function infinite;
+  }
+
+  &:before {
+    top: ($space-size + $border-size + $space-size);
+    left: ($space-size + $border-size + $space-size);
+    right: ($space-size + $border-size + $space-size);
+    bottom: ($space-size + $border-size + $space-size);
+  }
+
+  &:after {
+    top: $space-size;
+    left: $space-size;
+    right: $space-size;
+    bottom: $space-size;
+    animation-delay: 0.12s;
+  }
+}
