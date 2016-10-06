@@ -1,0 +1,48 @@
+$size                         = 80px
+$shadow-color                 = $color
+$shadow-shift                 = 15px
+$inset-shadow-shift           = 5px
+$animation-speed              = 0.26s
+$animation-function           = linear
+
+
+$shadow-colors = #b8d721 #6fbd23 #44a559 #3d76b7 #9f57ef #fb69c8 #ff90c7 #ffa481 #ff9c5b #ffcc6c #f6cb26 #fff019
+
+$shadow-positions = ( 0 1 ),
+                    ( 0.5 0.866 ),
+                    ( 0.866 0.5 ),
+                    ( 1 0 ),
+                    ( 0.866 -0.5 ),
+                    ( 0.5 -0.866 ),
+                    ( 0 -1 ),
+                    ( -0.5 -0.866 ),
+                    ( -0.866 -0.5 ),
+                    ( -1 0 ),
+                    ( -0.866 0.5 ),
+                    ( -0.5 0.866 )
+
+
+@keyframes spinner-10
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(-360deg)
+
+
+shadow($index)
+  (rgba($shadow-colors[$index], 1) ($shadow-positions[$index][0] * $shadow-shift) ($shadow-positions[$index][1] * $shadow-shift) 15px 1px)
+
+box-shadow()
+  box-shadow  shadow(0), shadow(1), shadow(2), shadow(3), shadow(4), shadow(5), shadow(6), shadow(7), shadow(8), shadow(9), shadow(10), shadow(11), #fff 0 0 0 $shadow-shift, #000 0 0 0 ($shadow-shift + 1px)
+
+
+.spinner-10
+  size $size
+  absolute top 50% left 50%
+  margin ($size / -2) 0 0 ($size / -2)
+  user-select none
+  border-radius 50%
+  box-shadow()
+  -webkit-filter saturate(400%) contrast(0.9)
+  filter saturate(400%) contrast(0.9)
+  animation spinner-10 $animation-speed $animation-function infinite

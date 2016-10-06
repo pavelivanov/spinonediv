@@ -26,8 +26,8 @@
     "start": "mkdirp ./lib && npm run build",
     "prepublish": "npm run scss:build",
     "clean": "rimraf ./lib",
-    "stylus:dev": "stylus -w ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
-    "stylus:build": "stylus ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "styl:dev": "stylus -w ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "styl:build": "stylus ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
     "scss:dev": "node-sass -w ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules",
     "scss:build": "node-sass ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules"
   },
