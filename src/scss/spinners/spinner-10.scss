@@ -44,7 +44,7 @@ $shadow-positions : (
 .spinner-10 {
   @include size($size);
   position: absolute;
-  top: 50% ;
+  top: 50%;
   left: 50%;
   margin: ($size / -2) 0 0 ($size / -2);
   user-select: none;
