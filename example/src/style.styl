@@ -12,7 +12,7 @@ body
 .content
   max-width: 1200px
   margin 0 auto
-  padding 60px 5px 50px
+  padding 60px 15px 50px
 
 
 
@@ -69,17 +69,17 @@ body
 
 .spinner-in
   background repeating-linear-gradient(
-      to right,
-      #052c33,
-      #052c33 1px,
-      transparent 1px,
-      transparent 12.5%
+    to right,
+    #052c33,
+    #052c33 1px,
+    transparent 1px,
+    transparent 12.5%
   ), repeating-linear-gradient(
-      to bottom,
-      #052c33,
-      #052c33 1px,
-      transparent 1px,
-      transparent 12.5%
+    to bottom,
+    #052c33,
+    #052c33 1px,
+    transparent 1px,
+    transparent 12.5%
   )
   background-color: #07303a //#ecf3fb
   margin 20px
@@ -276,7 +276,7 @@ for type in ( html jade )
     .source[data-type={type}]
       display: block
 
-for type in ( css scss stylus )
+for type in ( css scss styl )
   [data-style-type={type}]
     .source-tab[data-type={type}]
       opacity 1
@@ -290,6 +290,9 @@ for type in ( css scss stylus )
   .spinner
     width: 33.333%
 
+  .spinner-in
+    margin 10px
+
 @media (max-width: 700px)
   .spinner
     width: 50%
@@ -297,3 +300,18 @@ for type in ( css scss stylus )
 @media (max-width: 500px)
   .spinner
     width: 100%
+    &:first-child
+      .spinner-in
+        margin-top: 0
+
+  .spinner-in
+    margin 15px 0 0 0
+
+  .source-dialog
+    width auto
+    height auto
+    left 0
+    right 0
+    top 0
+    bottom 0
+    border-radius 0

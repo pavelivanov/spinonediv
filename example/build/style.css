@@ -195,7 +195,7 @@ body {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 5px 50px;
+  padding: 60px 15px 50px;
 }
 .hero {
   margin-bottom: 60px;
@@ -580,18 +580,21 @@ body {
 [data-style-type=scss] .source[data-type=scss] {
   display: block;
 }
-[data-style-type=stylus] .source-tab[data-type=stylus] {
+[data-style-type=styl] .source-tab[data-type=styl] {
   opacity: 1;
   -ms-filter: none;
   filter: none;
   cursor: default;
 }
-[data-style-type=stylus] .source[data-type=stylus] {
+[data-style-type=styl] .source[data-type=styl] {
   display: block;
 }
 @media (max-width: 1000px) {
   .spinner {
     width: 33.333%;
+  }
+  .spinner-in {
+    margin: 10px;
   }
 }
 @media (max-width: 700px) {
@@ -602,5 +605,20 @@ body {
 @media (max-width: 500px) {
   .spinner {
     width: 100%;
+  }
+  .spinner:first-child .spinner-in {
+    margin-top: 0;
+  }
+  .spinner-in {
+    margin: 15px 0 0 0;
+  }
+  .source-dialog {
+    width: auto;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
   }
 }

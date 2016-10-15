@@ -45,5 +45,7 @@ sourceWrapper.addEventListener('click', function() {
 });
 
 sourceDialog.addEventListener('click', function(event) {
-  event.stopPropagation();
+  if (window.screen.width > 500) {
+    event.stopPropagation();
+  }
 });
