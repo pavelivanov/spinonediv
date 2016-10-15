@@ -3,7 +3,6 @@
 *.log.*
 
 node_modules
-example/build/*.html
-example/build/*.css
+example/build/spinonediv.css
 
 lib

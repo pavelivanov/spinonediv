@@ -8,8 +8,8 @@
   "scripts": {
     "clean": "rimraf build",
     "html": "jade ./src -o ./build -P -w",
-    "css": "stylus -w ./src -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
-    "build": "npm run clean && jade ./src -o ./build -P && stylus ./src -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl"
+    "css": "stylus -w ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
+    "build": "npm run clean && jade ./src/style.styl -o ./build -P && stylus ./src -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl"
   },
   "dependencies": {
     "normalize.styl": "^3.0.3"

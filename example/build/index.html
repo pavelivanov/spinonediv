@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spin One Div</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="./style.css" rel="stylesheet">
+    <link href="../../lib/spinonediv.css" rel="stylesheet">
+  </head>
+  <body>
+    <section class="content">
+      <div class="hero">
+        <div class="title">Spin One &lt;/div&gt;</div>
+        <div class="subtitle">Single Element pure CSS Spinners & Loaders</div><a href="https://github.com/pavelivanov/spinonediv" target="_blank" class="github-button">
+          <svg class="github-button-icon">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github-icon"></use>
+          </svg>View on GitHub</a>
+      </div>
+      <div class="spinners">
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(0)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">2</span></div>
+            <div class="core spinner-2"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(1)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">4</span></div>
+            <div class="core spinner-4"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(2)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">5</span></div>
+            <div class="core spinner-5"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(3)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">6</span></div>
+            <div class="core spinner-6"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(4)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">7</span></div>
+            <div class="core spinner-7"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(5)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">8</span></div>
+            <div class="core spinner-8"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(6)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">9</span></div>
+            <div class="core spinner-9"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(7)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">10</span></div>
+            <div class="core spinner-10"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(8)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">11</span></div>
+            <div class="core spinner-11"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="spinner-in">
+            <div onclick="openSourceDialog(9)" class="spinner-source">source</div>
+            <div class="spinner-title"><span class="spinner-title-pre">spinner -</span><span class="spinner-num">12</span></div>
+            <div class="core spinner-12"></div>
+          </div>
+        </div>
+        <div class="spinner spinner-under-construction">
+          <div class="spinner-in">
+            <div class="spinner-under-construction-title">IN DEV</div>
+            <svg class="spinner-under-construction-icon">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#apple-app-store-icon"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div id="sourceWrapper" class="source-wrapper">
+        <div id="sourceDialog" data-markup-type="html" data-style-type="css" class="source-dialog">
+          <div class="source-list">
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="source-list-item">
+              <div class="source-html">
+                <div class="source-tabs">
+                  <div data-type="html" onclick="changeMarkupType('html')" class="source-tab">HTML</div>
+                  <div data-type="jade" onclick="changeMarkupType('jade')" class="source-tab">JADE</div>
+                </div>
+                <textarea readonly rows="1" data-type="html" class="source"><div class="spinner"></div></textarea>
+                <textarea readonly rows="1" data-type="jade" class="source">.spinner</textarea>
+              </div>
+              <div class="source-style-wrapper">
+                <div class="source-tabs">
+                  <div data-type="css" onclick="changeStyleType('css')" class="source-tab">CSS</div>
+                  <div data-type="scss" onclick="changeStyleType('scss')" class="source-tab">SCSS</div>
+                  <div data-type="stylus" onclick="changeStyleType('stylus')" class="source-tab">Stylus</div>
+                </div>
+                <div class="source-style">
+                  <textarea readonly data-type="css" class="source">css</textarea>
+                  <textarea readonly data-type="scss" class="source">scss</textarea>
+                  <textarea readonly data-type="stylus" class="source">stylus</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">Made by<a href="https://github.com/pavelivanov" class="footer-link">Pavel Ivanov</a></footer>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="github-icon" viewbox="0 0 32 32">
+          <title>github icon</title>
+          <path d="M16 0c-8.836 0-16 7.164-16 16 0 7.070 4.584 13.066 10.942 15.182 0.8 0.146 1.092-0.348 1.092-0.77 0-0.381-0.015-1.643-0.022-2.979-4.449 0.967-5.39-1.887-5.39-1.887-0.729-1.848-1.776-2.34-1.776-2.34-1.454-0.992 0.11-0.973 0.11-0.973 1.606 0.111 2.452 1.648 2.452 1.648 1.428 2.445 3.746 1.738 4.656 1.328 0.145-1.031 0.559-1.738 1.016-2.137-3.552-0.404-7.288-1.777-7.288-7.908 0-1.748 0.624-3.174 1.646-4.294-0.163-0.406-0.714-2.034 0.158-4.236 0 0 1.342-0.43 4.4 1.641 1.275-0.356 2.644-0.532 4.004-0.538 1.359 0.006 2.729 0.184 4.006 0.54 3.053-2.072 4.396-1.641 4.396-1.641 0.875 2.204 0.324 3.83 0.16 4.234 1.025 1.12 1.645 2.546 1.645 4.294 0 6.146-3.742 7.5-7.307 7.896 0.576 0.496 1.086 1.469 1.086 2.961 0 2.139-0.021 3.863-0.021 4.391 0 0.426 0.291 0.924 1.102 0.768 6.354-2.119 10.934-8.115 10.934-15.182 0-8.836-7.164-16-16-16z"></path>
+        </symbol>
+      </defs>
+    </svg>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="apple-app-store-icon" viewbox="0 0 460 460">
+          <title>pple app store icon</title>
+          <path d="M0,258.734v-58.366c0-5.346,4.392-9.719,9.772-9.719H112.91l-44.904,77.817H9.772   C4.392,268.466,0,264.102,0,258.734z M73.469,378.249l-32.915,22.3c-4.429,3.01-7.561,1.105-6.947-4.21l4.392-38.153   c0.611-5.315,4.921-7.486,9.582-4.83l25.473,14.552C77.707,370.577,77.898,375.248,73.469,378.249z M81.373,356.743l-25.473-14.557   c-4.657-2.66-6.298-8.625-3.589-13.264l117.954-204.469c2.676-4.646,8.708-6.275,13.362-3.58l25.473,14.519   c4.66,2.695,6.259,8.665,3.589,13.294L94.737,353.169C92.065,357.808,86.028,359.399,81.373,356.743z M171.144,268.466   l44.904-77.817h25.856l36.463,77.817H171.144z M317.394,291.688c-10.197-5.092-60.984-121.752-73.996-152.19   c-13.026-30.439-52.358-111.462-39.635-117.767c9.049-4.52,41.543,59.281,65.902,97.584   c24.324,38.305,75.19,137.068,81.449,148.315c6.227,11.276-5.992,20.676-12.787,23.49   C331.525,293.934,327.587,296.739,317.394,291.688z M350.768,345.31l-15.345-24.134c-3.174-5.022-1.526-11.22,3.621-13.866   l14.627-7.49c5.157-2.623,11.612-0.495,14.356,4.756l12.105,23.181c2.754,5.241,0.878,11.972-4.088,14.935l-10.459,6.227   C360.62,351.918,353.941,350.284,350.768,345.31z M407.244,408.613c-3.206-10.226-27.685-10.902-38.644-26.299   c-10.995-15.346-1.908-23.252,1.909-26.901C414.959,330.486,407.244,408.613,407.244,408.613z M430.117,258.734   c0,5.367-4.391,9.731-9.772,9.731h-51.627c-0.569-3.001-1.493-6.002-3.053-8.816c-1.344-2.395-4.741-8.854-9.474-17.856   c-6.833-12.993-16.647-31.575-27.153-51.144h91.302c5.382,0,9.773,4.373,9.773,9.719v58.366H430.117z"></path>
+        </symbol>
+      </defs>
+    </svg>
+    <script>
+      var tabs              = document.getElementsByClassName('source-tab');
+      var sourceWrapper     = document.getElementById('sourceWrapper');
+      var sourceDialog      = document.getElementById('sourceDialog');
+      var sourceListItems   = document.getElementsByClassName('source-list-item');
+      var activeSourceItem;
+      
+      function changeMarkupType(type) {
+        sourceDialog.setAttribute('data-markup-type', type);
+      }
+      
+      function changeStyleType(type) {
+        sourceDialog.setAttribute('data-style-type', type);
+      }
+      
+      function openSourceDialog(index) {
+        activeSourceItem = sourceListItems[index];
+        activeSourceItem.style.display = 'block';
+        sourceWrapper.style.display = 'block';
+      }
+      
+      sourceWrapper.addEventListener('click', function() {
+        activeSourceItem.style.display = 'none';
+        sourceWrapper.style.display = 'none';
+      });
+      
+      sourceDialog.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+      
+      
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mixpanel.track('New visitor');
+      });
+      
+    </script>
+    <script>
+      (function(e, a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+      0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+      for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})
+      (document, window.mixpanel || []);
+      mixpanel.init("bb683801ca304e569987c56eb7972c9a");
+    </script>
+  </body>
+</html>
