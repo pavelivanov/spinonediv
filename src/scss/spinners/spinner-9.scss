@@ -52,8 +52,8 @@ $triangle-container-margin-top    : -1 * $triangle-edge-size / 4;
 .spinner-9 {
   @include size(0);
   position: absolute;
-	top: 50%;
-	left: 50%;
+  top: 50%;
+  left: 50%;
   user-select: none;
   transform: rotate(30deg);
   animation: spinner-9--container $animation-speed steps(1) infinite;

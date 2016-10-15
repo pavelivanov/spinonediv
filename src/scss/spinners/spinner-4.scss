@@ -37,8 +37,8 @@ $animation-function     : cubic-bezier(0.22, 0.61, 0.36, 1);
 .spinner-4 {
   @include size(0);
   position: absolute;
-	top: 50%;
-	left: 50%;
+  top: 50%;
+  left: 50%;
   user-select: none;
   border-radius: 100%;
   box-sizing: border-box;
