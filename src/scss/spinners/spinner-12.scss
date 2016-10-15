@@ -1,0 +1,59 @@
+$size                         : 32px;
+$init-rotate                  : 0deg; //45deg;
+$shadow-y-shift               : 100px;
+$shadow-min-shift             : 1px;
+$shadow-init-shift            : $size / 2;
+$animation-speed              : 3s;
+$animation-function           : linear;
+
+$shadow-positions             : (  ( 1, -1 ), ( 1, 1 ), ( -1, 1 ), ( -1, -1 )  );
+
+
+@function animate-shadow-position($index) {
+  @return (nth(nth($shadow-positions, $index), 1) * ($shadow-init-shift + $shadow-min-shift) nth(nth($shadow-positions, $index), 2) * ($shadow-init-shift + $shadow-min-shift) - $shadow-y-shift)
+}
+
+@mixin animate-before-balls() {
+  box-shadow: $color animate-shadow-position(1);
+}
+
+@keyframes spinner-12-container {
+  0% {
+    transform: rotate($init-rotate);
+    box-shadow: $color animate-shadow-position(1);
+  }
+  50% {
+    transform: rotate($init-rotate);
+    box-shadow: $color animate-shadow-position(1);
+  }
+  62.5% {
+    transform: rotate($init-rotate + 45deg);
+    box-shadow: $color animate-shadow-position(2);
+  }
+  75% {
+    transform: rotate($init-rotate + 45deg * 2);
+    box-shadow: $color animate-shadow-position(3);
+  }
+  87.5% {
+    transform: rotate($init-rotate + 45deg * 3);
+    box-shadow: $color animate-shadow-position(4);
+  }
+  100% {
+    transform: rotate($init-rotate + 45deg * 4);
+    box-shadow: $color animate-shadow-position(1);
+  }
+}
+
+
+.spinner-12 {
+  @include size($size);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: ($size / -2 + $shadow-y-shift) 0 0 ($size / -2);
+  user-select: none;
+  transform: rotate($init-rotate);
+  transform-origin: 50% ($size / 2 - $shadow-y-shift);
+  @include animate-before-balls();
+  animation: spinner-12-container $animation-speed $animation-function infinite;
+}

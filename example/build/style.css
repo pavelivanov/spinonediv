@@ -441,7 +441,7 @@ body {
 }
 .source-wrapper {
   display: none;
-  background-color: rgba(22,5,37,0.78);
+  background-color: rgba(7,48,58,0.78);
   position: fixed;
   top: 0;
   left: 0;
@@ -531,7 +531,6 @@ body {
 .source {
   width: 100%;
   height: 100%;
-  display: none;
   background: none;
   border: 0;
   margin: 0;

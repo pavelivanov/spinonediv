@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf build",
+    "source": "node ./util/source.js",
     "html": "jade ./src -o ./build -P -w",
     "css": "stylus -w ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
     "build": "npm run clean && jade ./src/style.styl -o ./build -P && stylus ./src -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl"
@@ -15,6 +16,7 @@
     "normalize.styl": "^3.0.3"
   },
   "devDependencies": {
+    "glob": "^7.1.1",
     "stylus": "^0.54.5"
   }
 }
