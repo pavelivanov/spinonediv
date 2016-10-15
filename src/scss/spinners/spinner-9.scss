@@ -1,3 +1,5 @@
+@import "../modules";
+
 $triangle-container-width         : 120px;
 $triangle-height                  : $triangle-container-width / 2;
 $triangle-edge-size               : floor($triangle-container-width / sqrt(3));

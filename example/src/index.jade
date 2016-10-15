@@ -36,7 +36,7 @@ html
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#apple-app-store-icon")
 
       .source-wrapper#sourceWrapper
-        .source-dialog#sourceDialog(data-markup-type="html" data-style-type="scss")
+        .source-dialog#sourceDialog(data-markup-type="html" data-style-type="css")
           .source-html
             .source-tabs
               .source-tab(data-type="html" onclick="changeMarkupType('html')") HTML
@@ -44,7 +44,7 @@ html
             textarea.source#markupSource(readonly rows="1")
           .source-style-wrapper
             .source-tabs
-              //.source-tab(data-type="css" onclick="changeStyleType('css')") CSS
+              .source-tab(data-type="css" onclick="changeStyleType('css')") CSS
               .source-tab(data-type="scss" onclick="changeStyleType('scss')") SCSS
               .source-tab(data-type="styl" onclick="changeStyleType('styl')") Stylus
             .source-style

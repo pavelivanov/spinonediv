@@ -5,7 +5,7 @@ var styleSource       = document.getElementById('styleSource');
 
 var activeNum;
 var markupType = 'html';
-var styleType = 'scss';
+var styleType = 'css';
 
 
 function renderMarkupSource() {

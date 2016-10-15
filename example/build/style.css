@@ -189,6 +189,9 @@ td {
   font-style: normal;
   font-weight: 600;
 }
+::selection {
+  background: #9381ea;
+}
 body {
   font: 18px/26px 'Noto Sans', sans-serif;
 }
