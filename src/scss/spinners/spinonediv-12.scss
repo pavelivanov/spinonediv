@@ -47,7 +47,7 @@ $shadow-positions             : (  ( 1, -1 ), ( 1, 1 ), ( -1, 1 ), ( -1, -1 )  )
 }
 
 
-.spinner-12 {
+.spinonediv-12 {
   @include size($size);
   position: absolute;
   top: 50%;

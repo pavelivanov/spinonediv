@@ -9,7 +9,7 @@ var styleType = 'css';
 
 
 function renderMarkupSource() {
-  markupSource.innerHTML = markupType == 'html' ? '<div class="spinner-' + activeNum + '"></div>' : '.spinner-' + activeNum;
+  markupSource.innerHTML = markupType == 'html' ? '<div class="spinonediv-' + activeNum + '"></div>' : '.spinonediv-' + activeNum;
 }
 
 function renderStyleSource() {

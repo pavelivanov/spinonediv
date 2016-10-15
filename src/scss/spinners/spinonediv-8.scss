@@ -19,7 +19,7 @@ $animation-before-delay       : $animation-speed;
 }
 
 
-.spinner-8 {
+.spinonediv-8 {
   @include size($container-size);
   border: $border-size solid $color;
   margin: ($container-size / -2) 0 0 ($container-size / -2);

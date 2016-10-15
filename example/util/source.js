@@ -47,8 +47,9 @@ var promises = filePaths.map(function(filePath) {
   return new Promise(function(fulfill) {
     var sourceNum   = '' + filePath.match(/\d+/)[0];
     var sourceExt   = filePath.match(/[^\.]+$/)[0];
-
     var source      = fs.readFileSync(filePath, 'utf8');
+
+    source = source.replace(/\@import "..\/_?modules";?\n{1,2}/, '');
 
     if (!output[sourceNum]) {
       output[sourceNum] = {}
@@ -58,9 +59,10 @@ var promises = filePaths.map(function(filePath) {
 
     if (sourceExt == 'scss') {
       var sassRenderResult = sass.renderSync({
-        file: filePath
+        file: filePath,
+        outputStyle: 'expanded'
       });
-
+      
       postcss([ autoprefixer ]).process(sassRenderResult.css).then(function (result) {
         result.warnings().forEach(function (warn) {
           console.warn(warn.toString());
@@ -73,7 +75,7 @@ var promises = filePaths.map(function(filePath) {
     } else {
       fulfill();
     }
-  })	
+  })
 });
 
 Promise.all(promises).then(function() {
