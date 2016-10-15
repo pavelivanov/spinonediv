@@ -15,7 +15,7 @@ html
       .hero
         .title Spin One &lt;/div&gt;
         .subtitle Single Element pure CSS Spinners & Loaders
-        a.github-button(href="https://github.com/pavelivanov/spinonediv" target="_blank")
+        a.github-button(href="https://github.com/pavelivanov/spinonediv" target="_blank" onclick="track('GitHub button pressed')")
           svg.github-button-icon
             use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github-icon")
           | View on GitHub
@@ -53,7 +53,7 @@ html
 
     footer.footer
       | Made by
-      a.footer-link(href="https://github.com/pavelivanov") Pavel Ivanov
+      a.footer-link(href="https://github.com/pavelivanov" onclick="track('Footer link pressed')") Pavel Ivanov
 
 
     svg(style="position: absolute; width: 0; height: 0; overflow: hidden;", version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink")
@@ -76,6 +76,10 @@ html
       document.addEventListener('DOMContentLoaded', function() {
         mixpanel.track('New visitor');
       });
+
+      function track(event) {
+        mixpanel.track(event);
+      }
 
     script.
       (function(e, a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,

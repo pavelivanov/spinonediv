@@ -11,7 +11,7 @@
     <section class="content">
       <div class="hero">
         <div class="title">Spin One &lt;/div&gt;</div>
-        <div class="subtitle">Single Element pure CSS Spinners & Loaders</div><a href="https://github.com/pavelivanov/spinonediv" target="_blank" class="github-button">
+        <div class="subtitle">Single Element pure CSS Spinners & Loaders</div><a href="https://github.com/pavelivanov/spinonediv" target="_blank" onclick="track('GitHub button pressed')" class="github-button">
           <svg class="github-button-icon">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github-icon"></use>
           </svg>View on GitHub</a>
@@ -111,7 +111,7 @@
         </div>
       </div>
     </section>
-    <footer class="footer">Made by<a href="https://github.com/pavelivanov" class="footer-link">Pavel Ivanov</a></footer>
+    <footer class="footer">Made by<a href="https://github.com/pavelivanov" onclick="track('Footer link pressed')" class="footer-link">Pavel Ivanov</a></footer>
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <symbol id="github-icon" viewbox="0 0 32 32">
@@ -134,6 +134,10 @@
       document.addEventListener('DOMContentLoaded', function() {
         mixpanel.track('New visitor');
       });
+      
+      function track(event) {
+        mixpanel.track(event);
+      }
       
     </script>
     <script>
