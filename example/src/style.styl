@@ -9,11 +9,11 @@ $main-color = #9b31ff
 body
   font 18px/26px 'Noto Sans', sans-serif
 
-
 .content
   max-width: 1200px
   margin 0 auto
   padding 60px 5px 50px
+
 
 
 .hero
@@ -58,6 +58,7 @@ body
   display-inline-block()
 
 
+
 .spinners
   font-size: 0
 
@@ -100,6 +101,31 @@ body
     width: 1px
     height: 100%
     left 50%
+  &:hover
+    .spinner-source
+      opacity 1
+
+.spinner-source
+  line-height: 20px
+  absolute top 9px left 14px
+  cursor: pointer
+  opacity: 0.3
+  font-size: 15px
+  color #1a9fc1
+  transition all 0.16s linear
+  &:after
+    content ''
+    width: 100%
+    height: 1px
+    display: block
+    background-color: #1a9fc1
+    opacity: 0.3
+    transition all 0.16s linear
+  &:hover
+    color #57ddff
+    &:after
+      opacity: 1
+      color #57ddff
 
 .spinner-title
   line-height: 20px
@@ -110,9 +136,9 @@ body
 
 .spinner-title-pre
   vertical-align: top
-  margin 5px 8px 0 0
+  margin 4px 5px 0 0
   font-weight: 600
-  font-size: 18px
+  font-size: 15px
   display-inline-block()
 
 .spinner-num
@@ -141,6 +167,7 @@ body
   z-index: 100
 
 
+
 .footer
   padding-bottom 60px
   text-align: center
@@ -167,6 +194,96 @@ body
   &:hover
     &:after
       opacity: 1
+
+
+
+$source-html-height = 56px
+$source-tabs-height = 53px
+
+.source-wrapper
+  display: none
+  background-color: rgba(#160525, 0.78)
+  fixed top 0 left 0 right 0 bottom 0
+  z-index: 1000
+
+.source-dialog
+  width: 80%
+  max-width: 900px
+  height: 90%
+  background-color: #fff
+  absolute top 0 left 0 right 0 bottom 0
+  margin auto
+  overflow: hidden
+  border-radius 4px
+
+.source-list-item
+  display: none
+
+.source-html
+  height: $source-html-height
+  border-bottom 1px solid #d9d2e0
+
+.source-style-wrapper
+  absolute top ($source-html-height + 1px) left 0 right 0 bottom 0
+
+.source-tabs
+  padding 12px
+  absolute top 0 right 10px
+  z-index: 10
+  font-size: 0
+
+.source-tab
+  line-height: 26px
+  background-color: #9381ea
+  padding 0 10px
+  margin-left: 10px
+  opacity: 0.5
+  cursor: pointer
+  text-transform: uppercase
+  font-size: 13px
+  font-weight: 600
+  color #fff
+  border-radius 2px
+  transition opacity 0.16s linear
+  no-select()
+  display-inline-block()
+  &:first-child
+    margin-left: 0
+  &:hover
+    opacity 0.7
+
+.source-style
+  absolute top 0 left 0 right 0 bottom 0
+
+.source
+  size 100%
+  display: none
+  background: none
+  border 0
+  margin 0
+  padding 20px
+  resize none
+  outline 0
+  cursor: text
+  font: 14px Consolas, "Courier New", Courier, monospace
+  border-radius 0
+  box-sizing border-box
+
+for type in ( html jade )
+  [data-markup-type={type}]
+    .source-tab[data-type={type}]
+      opacity 1
+      cursor: default
+    .source[data-type={type}]
+      display: block
+
+for type in ( css scss stylus )
+  [data-style-type={type}]
+    .source-tab[data-type={type}]
+      opacity 1
+      cursor: default
+    .source[data-type={type}]
+      display: block
 
 
 
