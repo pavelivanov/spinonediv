@@ -1,8 +1,14 @@
+.DS_Store
 .idea
+
 *.log
 *.log.*
+*-lock.json
 
 node_modules
-example/build/spinonediv.css
-
 lib
+
+example/build/index.html
+example/build/source.js
+example/build/style.css
+example/build/spinonediv.css

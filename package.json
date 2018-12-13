@@ -23,11 +23,11 @@
   ],
   "main": "./lib",
   "scripts": {
-    "start": "mkdirp ./lib && npm run build",
+    "start": "mkdirp ./lib && npm run scss:build",
     "prepublish": "npm run scss:build",
     "clean": "rimraf ./lib",
-    "styl:dev": "stylus -w ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
-    "styl:build": "stylus ./src/stylus/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "styl:dev": "stylus -w ./src/styl/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
+    "styl:build": "stylus ./src/styl/spinonediv.styl -o ./lib -u ./node_modules/nib/lib/nib",
     "scss:dev": "node-sass -w ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules",
     "scss:build": "node-sass ./src/scss/spinonediv.scss -o ./lib --include-path ./node_modules"
   },
@@ -35,6 +35,7 @@
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "nib": "^1.1.2",
+    "node-sass": "^4.11.0",
     "rimraf": "^2.5.4",
     "stylus": "^0.54.5"
   }

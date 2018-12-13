@@ -6,11 +6,13 @@
   "author": "Pavel Ivanov (grammka@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf build",
     "source": "node ./util/source.js",
-    "html": "jade ./src -o ./build -P -w",
-    "css": "stylus -w ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
-    "build": "npm run clean && jade ./src/style.styl -o ./build -P && stylus ./src -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl"
+    "html:dev": "jade ./src -o ./build -P -w",
+    "css:dev": "stylus -w ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
+    "html": "jade ./src/index.jade -o ./build -P",
+    "css": "stylus ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
+    "build:lib:scss": "node-sass ../src/scss/spinonediv.scss -o ./build --include-path ../node_modules",
+    "build": "npm run build:lib:scss && npm run html && npm run css && npm run source"
   },
   "dependencies": {
     "normalize.styl": "^3.0.3"
@@ -18,6 +20,7 @@
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "glob": "^7.1.1",
+    "jade": "^1.11.0",
     "node-sass": "^3.10.1",
     "postcss": "^5.2.4",
     "postcss-js": "^0.1.3",

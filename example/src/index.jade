@@ -5,7 +5,7 @@ html
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     link(href="./style.css" rel="stylesheet")
-    link(href="../../lib/spinonediv.css" rel="stylesheet")
+    link(href="./spinonediv.css" rel="stylesheet")
 
   body
 
@@ -26,9 +26,8 @@ html
             .spinner-in
               .spinner-source(onclick="openSourceDialog(#{num})") source
               .spinner-title
-                span.spinner-title-pre spinonediv -
                 span.spinner-num #{num}
-              .core(class="spinner-#{num}")
+              .core(class="spinonediv-#{num}")
         .spinner.spinner-under-construction
           .spinner-in
             .spinner-under-construction-title IN DEV
