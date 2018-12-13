@@ -12,7 +12,7 @@
     "html": "jade ./src/index.jade -o ./build -P",
     "css": "stylus ./src/style.styl -o ./build -u ../node_modules/nib/lib/nib --import ./node_modules/normalize.styl/_normalize.styl",
     "build:lib:scss": "node-sass ../src/scss/spinonediv.scss -o ./build --include-path ../node_modules",
-    "build": "npm run build:lib:scss && npm run html && npm run css && npm run source"
+    "build": "npm run build:lib:scss && npm run html && npm run css && npm run source && surge -p ./build -d spinonediv.surge.sh"
   },
   "dependencies": {
     "normalize.styl": "^3.0.3"
